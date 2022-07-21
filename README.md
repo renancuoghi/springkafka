@@ -16,6 +16,7 @@ mvn clean spring-boot:run
 
 ## Usage
 The project contains only one GET method endpoint, this endpoint was created to receive and send a message to kafka. To send a message access a browser and send: (http://localhost:8080/test?message=helloooooo).
+You can check file myapp.log if it is working.
 
 
 ## Contributing
