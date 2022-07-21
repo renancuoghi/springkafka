@@ -1,0 +1,826 @@
+2022-07-21 10:47:48.642  INFO 34679 --- [main] org.example.Application                  : Starting Application using Java 11.0.15 on renan-pc with PID 34679 (/home/renan/IdeaProjects/SpringKafka/target/classes started by renan in /home/renan/IdeaProjects/SpringKafka)
+2022-07-21 10:47:48.644  INFO 34679 --- [main] org.example.Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 10:47:49.679  INFO 34679 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 10:47:49.695  INFO 34679 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 10:47:49.696  INFO 34679 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-21 10:47:49.829  INFO 34679 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 10:47:49.829  INFO 34679 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1114 ms
+2022-07-21 10:47:50.284  INFO 34679 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group_id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-07-21 10:47:50.394  WARN 34679 --- [main] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server kafka:9092 from bootstrap.servers as DNS resolution failed for kafka
+2022-07-21 10:47:50.400  INFO 34679 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:47:50.400  INFO 34679 --- [main] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:47:50.401  INFO 34679 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:47:50.403  INFO 34679 --- [main] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group_id-1 unregistered
+2022-07-21 10:47:50.403  WARN 34679 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+2022-07-21 10:47:50.412  INFO 34679 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-07-21 10:47:50.432  INFO 34679 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-21 10:47:50.451 ERROR 34679 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.20.jar:5.3.20]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.example.Application.main(Application.java:17) ~[classes/:na]
+Caused by: org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:664) ~[kafka-clients-3.1.1.jar:na]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createRawConsumer(DefaultKafkaConsumerFactory.java:416) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:384) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumerWithAdjustedProperties(DefaultKafkaConsumerFactory.java:360) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:327) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumer(DefaultKafkaConsumerFactory.java:304) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.<init>(KafkaMessageListenerContainer.java:773) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer.doStart(KafkaMessageListenerContainer.java:351) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.doStart(ConcurrentMessageListenerContainer.java:209) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.startIfNecessary(KafkaListenerEndpointRegistry.java:331) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.start(KafkaListenerEndpointRegistry.java:276) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.20.jar:5.3.20]
+	... 14 common frames omitted
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:730) ~[kafka-clients-3.1.1.jar:na]
+	... 28 common frames omitted
+
+2022-07-21 10:48:17.733  INFO 34784 --- [main] org.example.Application                  : Starting Application using Java 11.0.15 on renan-pc with PID 34784 (/home/renan/IdeaProjects/SpringKafka/target/classes started by renan in /home/renan/IdeaProjects/SpringKafka)
+2022-07-21 10:48:17.735  INFO 34784 --- [main] org.example.Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 10:48:18.633  INFO 34784 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 10:48:18.640  INFO 34784 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 10:48:18.641  INFO 34784 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-21 10:48:18.754  INFO 34784 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 10:48:18.755  INFO 34784 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 959 ms
+2022-07-21 10:48:19.199  INFO 34784 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1::092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group_id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-07-21 10:48:19.286  WARN 34784 --- [main] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server 127.0.0.1::092 from bootstrap.servers as DNS resolution failed for 127.0.0.1:
+2022-07-21 10:48:19.287  INFO 34784 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:48:19.288  INFO 34784 --- [main] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:48:19.288  INFO 34784 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:48:19.290  INFO 34784 --- [main] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group_id-1 unregistered
+2022-07-21 10:48:19.290  WARN 34784 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+2022-07-21 10:48:19.297  INFO 34784 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-07-21 10:48:19.313  INFO 34784 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-21 10:48:19.332 ERROR 34784 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.20.jar:5.3.20]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.example.Application.main(Application.java:17) ~[classes/:na]
+Caused by: org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:664) ~[kafka-clients-3.1.1.jar:na]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createRawConsumer(DefaultKafkaConsumerFactory.java:416) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:384) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumerWithAdjustedProperties(DefaultKafkaConsumerFactory.java:360) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:327) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumer(DefaultKafkaConsumerFactory.java:304) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.<init>(KafkaMessageListenerContainer.java:773) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer.doStart(KafkaMessageListenerContainer.java:351) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.doStart(ConcurrentMessageListenerContainer.java:209) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.startIfNecessary(KafkaListenerEndpointRegistry.java:331) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.start(KafkaListenerEndpointRegistry.java:276) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.20.jar:5.3.20]
+	... 14 common frames omitted
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:730) ~[kafka-clients-3.1.1.jar:na]
+	... 28 common frames omitted
+
+2022-07-21 10:48:40.278  INFO 34863 --- [main] org.example.Application                  : Starting Application using Java 11.0.15 on renan-pc with PID 34863 (/home/renan/IdeaProjects/SpringKafka/target/classes started by renan in /home/renan/IdeaProjects/SpringKafka)
+2022-07-21 10:48:40.280  INFO 34863 --- [main] org.example.Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 10:48:41.201  INFO 34863 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 10:48:41.208  INFO 34863 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 10:48:41.209  INFO 34863 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-21 10:48:41.303  INFO 34863 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 10:48:41.304  INFO 34863 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2022-07-21 10:48:41.769  INFO 34863 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1::9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group_id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-07-21 10:48:41.861  WARN 34863 --- [main] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server 127.0.0.1::9092 from bootstrap.servers as DNS resolution failed for 127.0.0.1:
+2022-07-21 10:48:41.862  INFO 34863 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:48:41.862  INFO 34863 --- [main] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:48:41.862  INFO 34863 --- [main] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:48:41.864  INFO 34863 --- [main] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group_id-1 unregistered
+2022-07-21 10:48:41.864  WARN 34863 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+2022-07-21 10:48:41.869  INFO 34863 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-07-21 10:48:41.882  INFO 34863 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-21 10:48:41.898 ERROR 34863 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.kafka.config.internalKafkaListenerEndpointRegistry'; nested exception is org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.20.jar:5.3.20]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.20.jar:5.3.20]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.0.jar:2.7.0]
+	at org.example.Application.main(Application.java:17) ~[classes/:na]
+Caused by: org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:823) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:664) ~[kafka-clients-3.1.1.jar:na]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createRawConsumer(DefaultKafkaConsumerFactory.java:416) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:384) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumerWithAdjustedProperties(DefaultKafkaConsumerFactory.java:360) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createKafkaConsumer(DefaultKafkaConsumerFactory.java:327) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.core.DefaultKafkaConsumerFactory.createConsumer(DefaultKafkaConsumerFactory.java:304) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.<init>(KafkaMessageListenerContainer.java:773) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer.doStart(KafkaMessageListenerContainer.java:351) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.ConcurrentMessageListenerContainer.doStart(ConcurrentMessageListenerContainer.java:209) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:461) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.startIfNecessary(KafkaListenerEndpointRegistry.java:331) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.kafka.config.KafkaListenerEndpointRegistry.start(KafkaListenerEndpointRegistry.java:276) ~[spring-kafka-2.8.6.jar:2.8.6]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.20.jar:5.3.20]
+	... 14 common frames omitted
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48) ~[kafka-clients-3.1.1.jar:na]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:730) ~[kafka-clients-3.1.1.jar:na]
+	... 28 common frames omitted
+
+2022-07-21 10:49:06.030  INFO 34947 --- [main] org.example.Application                  : Starting Application using Java 11.0.15 on renan-pc with PID 34947 (/home/renan/IdeaProjects/SpringKafka/target/classes started by renan in /home/renan/IdeaProjects/SpringKafka)
+2022-07-21 10:49:06.032  INFO 34947 --- [main] org.example.Application                  : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 10:49:06.859  INFO 34947 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 10:49:06.870  INFO 34947 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 10:49:06.871  INFO 34947 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-07-21 10:49:06.962  INFO 34947 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 10:49:06.962  INFO 34947 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+2022-07-21 10:49:07.432  INFO 34947 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group_id-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-07-21 10:49:07.560  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.1.1
+2022-07-21 10:49:07.560  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 97671528ba54a138
+2022-07-21 10:49:07.560  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1658411347558
+2022-07-21 10:49:07.563  INFO 34947 --- [main] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group_id-1, groupId=group_id] Subscribed to topic(s): topic.logger
+2022-07-21 10:49:07.570  INFO 34947 --- [main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [127.0.0.1:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-group_id-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = group_id
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-07-21 10:49:07.584  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.1.1
+2022-07-21 10:49:07.585  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 97671528ba54a138
+2022-07-21 10:49:07.585  INFO 34947 --- [main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1658411347584
+2022-07-21 10:49:07.586  INFO 34947 --- [main] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group_id-2, groupId=group_id] Subscribed to topic(s): topic.message
+2022-07-21 10:49:07.610  INFO 34947 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-21 10:49:07.626  INFO 34947 --- [main] org.example.Application                  : Started Application in 2.009 seconds (JVM running for 2.387)
+2022-07-21 10:49:07.966  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group_id-1, groupId=group_id] Resetting the last seen epoch of partition topic.logger-0 to 0 since the associated topicId changed from null to NP_KvZ8pRwisMFCPCBKzkw
+2022-07-21 10:49:07.966  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group_id-2, groupId=group_id] Resetting the last seen epoch of partition topic.message-0 to 0 since the associated topicId changed from null to KBZJpKWoRM-4Yod3naqe-A
+2022-07-21 10:49:07.969  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group_id-1, groupId=group_id] Cluster ID: HsxJ25EBS3Omcuv_34lrAQ
+2022-07-21 10:49:07.969  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group_id-2, groupId=group_id] Cluster ID: HsxJ25EBS3Omcuv_34lrAQ
+2022-07-21 10:49:07.971  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2022-07-21 10:49:07.971  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Discovered group coordinator 127.0.0.1:9092 (id: 2147483646 rack: null)
+2022-07-21 10:49:07.974  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] (Re-)joining group
+2022-07-21 10:49:07.974  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] (Re-)joining group
+2022-07-21 10:49:08.063  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Request joining group due to: need to re-join with the given member-id
+2022-07-21 10:49:08.063  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Request joining group due to: need to re-join with the given member-id
+2022-07-21 10:49:08.064  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] (Re-)joining group
+2022-07-21 10:49:08.064  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] (Re-)joining group
+2022-07-21 10:49:08.114  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Successfully joined group with generation Generation{generationId=1, memberId='consumer-group_id-1-4ee87110-5a7e-4628-a5db-5d3f23c59a42', protocol='range'}
+2022-07-21 10:49:08.119  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Successfully joined group with generation Generation{generationId=1, memberId='consumer-group_id-2-ae1193f3-c6b7-4d1e-bf64-e080c52ed4b6', protocol='range'}
+2022-07-21 10:49:08.135  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-group_id-2, groupId=group_id] Resetting the last seen epoch of partition topic.logger-0 to 0 since the associated topicId changed from null to NP_KvZ8pRwisMFCPCBKzkw
+2022-07-21 10:49:08.138  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Finished assignment for group at generation 1: {consumer-group_id-1-4ee87110-5a7e-4628-a5db-5d3f23c59a42=Assignment(partitions=[topic.logger-0]), consumer-group_id-2-ae1193f3-c6b7-4d1e-bf64-e080c52ed4b6=Assignment(partitions=[topic.message-0])}
+2022-07-21 10:49:08.283  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Successfully synced group in generation Generation{generationId=1, memberId='consumer-group_id-1-4ee87110-5a7e-4628-a5db-5d3f23c59a42', protocol='range'}
+2022-07-21 10:49:08.283  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Successfully synced group in generation Generation{generationId=1, memberId='consumer-group_id-2-ae1193f3-c6b7-4d1e-bf64-e080c52ed4b6', protocol='range'}
+2022-07-21 10:49:08.285  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Notifying assignor about the new Assignment(partitions=[topic.logger-0])
+2022-07-21 10:49:08.286  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Notifying assignor about the new Assignment(partitions=[topic.message-0])
+2022-07-21 10:49:08.288  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Adding newly assigned partitions: topic.logger-0
+2022-07-21 10:49:08.292  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Adding newly assigned partitions: topic.message-0
+2022-07-21 10:49:08.311  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Found no committed offset for partition topic.message-0
+2022-07-21 10:49:08.311  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Found no committed offset for partition topic.logger-0
+2022-07-21 10:49:08.319  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Found no committed offset for partition topic.message-0
+2022-07-21 10:49:08.320  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Found no committed offset for partition topic.logger-0
+2022-07-21 10:49:08.349  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-group_id-2, groupId=group_id] Resetting offset for partition topic.message-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2022-07-21 10:49:08.349  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-group_id-1, groupId=group_id] Resetting offset for partition topic.logger-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[127.0.0.1:9092 (id: 1 rack: null)], epoch=0}}.
+2022-07-21 10:49:08.382  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: partitions assigned: [topic.logger-0]
+2022-07-21 10:49:08.383  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: partitions assigned: [topic.message-0]
+2022-07-21 10:49:18.819  INFO 34947 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-21 10:49:18.819  INFO 34947 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-21 10:49:18.821  INFO 34947 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-07-21 10:49:18.856  INFO 34947 --- [http-nio-8080-exec-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [127.0.0.1:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+2022-07-21 10:49:18.864  INFO 34947 --- [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Instantiated an idempotent producer.
+2022-07-21 10:49:18.875  INFO 34947 --- [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.1.1
+2022-07-21 10:49:18.875  INFO 34947 --- [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 97671528ba54a138
+2022-07-21 10:49:18.875  INFO 34947 --- [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1658411358875
+2022-07-21 10:49:18.883  INFO 34947 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Resetting the last seen epoch of partition topic.message-0 to 0 since the associated topicId changed from null to KBZJpKWoRM-4Yod3naqe-A
+2022-07-21 10:49:18.884  INFO 34947 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Cluster ID: HsxJ25EBS3Omcuv_34lrAQ
+2022-07-21 10:49:18.892  INFO 34947 --- [kafka-producer-network-thread | producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=producer-1] ProducerId set to 4001 with epoch 0
+2022-07-21 10:49:19.024  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : ------------ CONSUMING -----------------
+2022-07-21 10:49:19.024  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : Topic: topic.message
+2022-07-21 10:49:19.024  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : Message: asdasdsadsa
+2022-07-21 10:49:19.029  INFO 34947 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Resetting the last seen epoch of partition topic.logger-0 to 0 since the associated topicId changed from null to NP_KvZ8pRwisMFCPCBKzkw
+2022-07-21 10:49:19.050  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : ------------ CONSUMING -----------------
+2022-07-21 10:49:19.050  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : Topic: topic.logger
+2022-07-21 10:49:19.050  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : Message: asdasdsadsa
+2022-07-21 10:49:31.387  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : ------------ CONSUMING -----------------
+2022-07-21 10:49:31.388  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : Topic: topic.message
+2022-07-21 10:49:31.388  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.example.services.TopicKafkaListener  : Message: aasdsadbbbbbdfwrt324234
+2022-07-21 10:49:31.398  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : ------------ CONSUMING -----------------
+2022-07-21 10:49:31.399  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : Topic: topic.logger
+2022-07-21 10:49:31.399  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.example.services.TopicKafkaListener  : Message: aasdsadbbbbbdfwrt324234
+2022-07-21 10:49:36.224  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Revoke previously assigned partitions topic.logger-0
+2022-07-21 10:49:36.224  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Revoke previously assigned partitions topic.message-0
+2022-07-21 10:49:36.225  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: partitions revoked: [topic.message-0]
+2022-07-21 10:49:36.225  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: partitions revoked: [topic.logger-0]
+2022-07-21 10:49:36.225  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Member consumer-group_id-2-ae1193f3-c6b7-4d1e-bf64-e080c52ed4b6 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2022-07-21 10:49:36.225  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Member consumer-group_id-1-4ee87110-5a7e-4628-a5db-5d3f23c59a42 sending LeaveGroup request to coordinator 127.0.0.1:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2022-07-21 10:49:36.227  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Resetting generation due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.228  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Request joining group due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.228  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group_id-2, groupId=group_id] Unsubscribed all topics or patterns and assigned partitions
+2022-07-21 10:49:36.228  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Resetting generation due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.228  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Request joining group due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.228  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-group_id-1, groupId=group_id] Unsubscribed all topics or patterns and assigned partitions
+2022-07-21 10:49:36.230  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Resetting generation due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.230  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-1, groupId=group_id] Request joining group due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.231  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Resetting generation due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.231  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-group_id-2, groupId=group_id] Request joining group due to: consumer pro-actively leaving the group
+2022-07-21 10:49:36.245  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:49:36.249  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:49:36.249  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:49:36.248  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:49:36.254  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:49:36.255  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:49:36.252  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group_id-1 unregistered
+2022-07-21 10:49:36.258  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: Consumer stopped
+2022-07-21 10:49:36.262  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-group_id-2 unregistered
+2022-07-21 10:49:36.262  INFO 34947 --- [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : group_id: Consumer stopped
+2022-07-21 10:49:36.265  INFO 34947 --- [SpringApplicationShutdownHook] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms.
+2022-07-21 10:49:36.269  INFO 34947 --- [SpringApplicationShutdownHook] org.apache.kafka.common.metrics.Metrics  : Metrics scheduler closed
+2022-07-21 10:49:36.271  INFO 34947 --- [SpringApplicationShutdownHook] org.apache.kafka.common.metrics.Metrics  : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2022-07-21 10:49:36.271  INFO 34947 --- [SpringApplicationShutdownHook] org.apache.kafka.common.metrics.Metrics  : Metrics reporters closed
+2022-07-21 10:49:36.271  INFO 34947 --- [SpringApplicationShutdownHook] o.a.kafka.common.utils.AppInfoParser     : App info kafka.producer for producer-1 unregistered
